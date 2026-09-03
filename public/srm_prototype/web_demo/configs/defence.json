@@ -1,0 +1,15 @@
+{
+  "mode": "defence",
+  "title": "Strategic Terrain & Perimeter Monitoring (Non-Sensitive Demo)",
+  "region": "Demonstration Border Outpost & Track Corridor",
+  "satellite_sensor": "Medium Resolution Multispectral (Simulated Demo)",
+  "resolution_enhancement": "10m to 5m (2x Super-Resolution)",
+  "boundaries_count": 2,
+  "mapped_area": "38.5 Hectares Terrain Corridor",
+  "gov_relevance": "High-level terrain and infrastructure monitoring using non-sensitive demonstration data.",
+  "original_image": "../data/original/defence_border.png",
+  "sr_image": "../data/sr_output/defence_border_sr_2x.png",
+  "confidence_overlay": "../data/sr_output/confidence_overlay.png",
+  "geojson_file": "../data/boundaries/field_boundaries.geojson",
+  "description": "Perimeter security lines, desert patrol corridors, and checkpoint footprint delineation."
+}

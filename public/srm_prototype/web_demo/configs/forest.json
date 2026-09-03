@@ -1,0 +1,15 @@
+{
+  "mode": "forest",
+  "title": "Forest Reserve & Canopy Edge Conservation",
+  "region": "Eastern Ghats Forest Corridor, Andhra Pradesh",
+  "satellite_sensor": "Sentinel-2 MSI Near-Infrared / True Color",
+  "resolution_enhancement": "10m to 5m (2x Super-Resolution)",
+  "boundaries_count": 5,
+  "mapped_area": "114.8 Hectares Forest Canopy",
+  "gov_relevance": "Clearer forest edges and degradation indicators for forest departments.",
+  "original_image": "../data/original/forest_reserve.png",
+  "sr_image": "../data/sr_output/forest_reserve_sr_2x.png",
+  "confidence_overlay": "../data/sr_output/confidence_overlay.png",
+  "geojson_file": "../data/boundaries/field_boundaries.geojson",
+  "description": "Delineation of reserve forest compartment boundaries, fire lines, and unauthorized clearings."
+}

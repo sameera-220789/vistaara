@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DeepSRM – AI Super-Resolution Mapping Platform</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="header-brand">
+      <h1>
+        DeepSRM – AI Super-Resolution Mapping Platform
+        <span class="badge-sih">Smart India Hackathon Prototype</span>
+      </h1>
+      <p>Agriculture | Urban | Disaster | Defence | Forest</p>
+    </div>
+
+    <div class="header-controls">
+      <div class="mode-selector-wrap">
+        <label for="modeSelect">Application Mode:</label>
+        <select id="modeSelect" class="mode-dropdown">
+          <option value="agriculture" selected>🌾 Agriculture (Primary Working Demo - Krishna/Guntur)</option>
+          <option value="urban">🏙️ Urban (Infrastructure & SISDP-U)</option>
+          <option value="disaster">🌊 Disaster (Flood Inundation & NDEM)</option>
+          <option value="defence">🛡️ Defence (Strategic Terrain Corridor)</option>
+          <option value="forest">🌲 Forest (Canopy Edge & Conservation)</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewer and Intelligence Workspace -->
+  <main class="main-container">
+    
+    <!-- Left Column: Map & Super-Resolution Split Viewer -->
+    <section class="viewer-card">
+      <div class="viewer-toolbar">
+        <div class="layer-toggles">
+          <label class="toggle-label">
+            <input type="checkbox" id="toggleSliderMode" checked />
+            <span>Before / After Split Slider</span>
+          </label>
+          <label class="toggle-label">
+            <input type="checkbox" id="toggleBoundaries" checked />
+            <span>Field Boundaries (GeoJSON)</span>
+          </label>
+          <label class="toggle-label">
+            <input type="checkbox" id="toggleConfidence" />
+            <span>Confidence Overlay (Edge Heuristic)</span>
+          </label>
+        </div>
+        <div class="slider-mode-indicator">
+          <span>Drag slider horizontally to compare resolution</span>
+        </div>
+      </div>
+
+      <!-- Split Viewer Stage -->
+      <div class="split-viewer-wrapper" id="viewerWrapper">
+        <!-- Original 10m Satellite Imagery -->
+        <img id="img-original" class="viewer-image-layer" src="../data/original/agri_krishna_sentinel2.png" alt="Medium-Resolution Original Satellite Scene" />
+        
+        <!-- Super-Resolved 2x/4x Satellite Imagery -->
+        <img id="img-sr" class="viewer-image-layer" src="../data/sr_output/agri_krishna_sentinel2_sr_2x.png" alt="DeepSRM Super-Resolved Satellite Scene" />
+        
+        <!-- Optional Confidence Map Overlay -->
+        <img id="overlay-confidence" class="viewer-image-layer" src="../data/sr_output/confidence_overlay.png" alt="Confidence Overlay" />
+        
+        <!-- Disaster Change Detection Mask -->
+        <img id="overlay-change-mask" class="viewer-image-layer" src="" alt="Flood Inundation Mask" />
+
+        <!-- GeoJSON Boundary Overlay (Interactive SVG) -->
+        <svg id="svg-overlay"></svg>
+
+        <!-- Draggable Handle Bar -->
+        <div class="slider-handle" id="sliderHandle">
+          <div class="slider-button">⇄</div>
+        </div>
+
+        <!-- Watermark / Tags -->
+        <div class="badge-tag tag-original">Original (Medium Res 10m)</div>
+        <div class="badge-tag tag-sr">DeepSRM 2x Super-Resolved</div>
+      </div>
+    </section>
+
+    <!-- Right Column: Telemetry & Government Relevance Panel -->
+    <aside class="side-panel">
+      
+      <!-- Spatial Intelligence Summary -->
+      <div class="info-card">
+        <h2>🛰️ Telemetry & Geospatial Data</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Current Use Case</span>
+            <span class="info-value" id="infoUseCase">Agriculture (Primary Working Demo)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Target Region</span>
+            <span class="info-value" id="infoRegion">Krishna & Guntur Districts, Andhra Pradesh</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Delineated Boundaries</span>
+            <span class="info-value" id="infoBoundaries">4 Agricultural Parcels</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Approximate Mapped Area</span>
+            <span class="info-value" id="infoMappedArea">106.0 Hectares (262.0 Acres)</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Context Summary</span>
+            <span class="info-value" id="infoDescription" style="font-size:0.83rem; color:#cbd5e1;">
+              Delineation of fragmented smallholder agricultural fields, irrigation canals, and field bunds.
+            </span>
+          </div>
+        </div>
+
+        <!-- Government Relevance Banner -->
+        <div class="highlight-box">
+          <div class="title">🏛️ Government Relevance & Public Good</div>
+          <div class="desc" id="infoGovRelevance">
+            Clearer small field boundaries for FASAL, PMFBY and Krishi-DSS.
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Overlay Legend -->
+      <div class="legend-card">
+        <h3>Interactive GIS Legend</h3>
+        <div class="legend-items">
+          <div class="legend-item">
+            <div class="legend-color-box" style="border: 2px solid #10b981; background: rgba(16, 185, 129, 0.2);"></div>
+            <span>Delineated Parcel Boundary (GeoJSON Vector)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color-box" style="background: #10b981;"></div>
+            <span>High Heuristic Confidence (Edge Gradient ≥ 80%)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color-box" style="background: #f59e0b;"></div>
+            <span>Moderate Confidence (50% – 80%)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color-box" style="background: #ef4444;"></div>
+            <span>Ambiguous / Low Confidence (&lt; 50%)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color-box" style="background: #ef4444; opacity: 0.8;"></div>
+            <span>Disaster Inundation / Change Alert Mask</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline Quick Overview -->
+      <div class="info-card" style="padding: 14px;">
+        <h2 style="font-size: 0.92rem; margin-bottom: 8px;">⚙️ Architecture Flow</h2>
+        <ol style="font-size: 0.82rem; color: #94a3b8; padding-left: 18px; line-height: 1.5;">
+          <li><strong>Phase 1:</strong> Sentinel-2 10m Input → Real-ESRGAN / Lanczos 2x Super-Resolution.</li>
+          <li><strong>Phase 2:</strong> Sub-pixel boundary extraction → Spherical Shoelace metric calculation → GeoJSON / CSV.</li>
+        </ol>
+      </div>
+
+    </aside>
+  </main>
+
+  <!-- Floating Dynamic Tooltip for GeoJSON hover -->
+  <div id="tooltip" class="tooltip-card"></div>
+
+  <!-- Footer -->
+  <footer>
+    DeepSRM – Deep Learning Based Super Resolution Mapping from Medium Resolution Satellite Imagery • Smart India Hackathon
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

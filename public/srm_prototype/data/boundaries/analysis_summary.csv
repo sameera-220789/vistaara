@@ -1,0 +1,5 @@
+Parcel ID,Farmer Name,District,Crop Type,Area (Sq Meters),Area (Hectares),Area (Acres),Perimeter (Meters),Confidence,PMFBY Status
+AP_KRI_PARCEL_101,"Rao, Venkateshwarlu",Krishna,Paddy / Rice (Kharif),241867.75,24.187,59.767,1975.98,94.2% (High),Verified via DeepSRM
+AP_KRI_PARCEL_102,"Lakshmi, K.",Guntur,Chilli (Capsicum annuum),243882.29,24.388,60.264,1985.76,94.2% (High),Verified via DeepSRM
+AP_KRI_PARCEL_103,"Reddy, Srinivasa",Krishna,Cotton / Sugarcane,341977.95,34.198,84.505,2380.24,94.2% (High),Verified via DeepSRM
+AP_KRI_PARCEL_104,"Subbarao, M.",Krishna,Horticulture / Mango Grove,232568.39,23.257,57.469,1939.53,94.2% (High),Verified via DeepSRM

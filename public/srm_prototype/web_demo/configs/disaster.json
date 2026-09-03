@@ -1,0 +1,16 @@
+{
+  "mode": "disaster",
+  "title": "Disaster Response & Flood Inundation Assessment",
+  "region": "Krishna River Lower Basin Inundation Zone",
+  "satellite_sensor": "Sentinel-2 MSI Pre/Post Flood Comparison",
+  "resolution_enhancement": "10m to 5m (2x Super-Resolution)",
+  "boundaries_count": 3,
+  "mapped_area": "25.2 Hectares Submerged (62.3 Acres)",
+  "gov_relevance": "Enhanced flood or landslide extent for NDEM and state disaster management portals.",
+  "original_image": "../data/original/disaster_flood_before.png",
+  "sr_image": "../data/sr_output/disaster_flood_after_sr_2x.png",
+  "change_mask": "../data/change_masks/flood_change_mask.png",
+  "confidence_overlay": "../data/sr_output/confidence_overlay.png",
+  "geojson_file": "../data/boundaries/field_boundaries.geojson",
+  "description": "Rapid inundation assessment comparing baseline river levels against peak flood surge extent."
+}

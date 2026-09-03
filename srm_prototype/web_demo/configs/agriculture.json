@@ -1,0 +1,15 @@
+{
+  "mode": "agriculture",
+  "title": "Agriculture (Primary Working Demo)",
+  "region": "Krishna & Guntur Districts, Andhra Pradesh, India",
+  "satellite_sensor": "Sentinel-2 MSI (10m Band 4,3,2 RGB)",
+  "resolution_enhancement": "10m to 5m (2x Super-Resolution)",
+  "boundaries_count": 4,
+  "mapped_area": "48.6 Hectares (120.1 Acres)",
+  "gov_relevance": "Clearer small field boundaries for FASAL, PMFBY and Krishi-DSS.",
+  "original_image": "../data/original/agri_krishna_sentinel2.png",
+  "sr_image": "../data/sr_output/agri_krishna_sentinel2_sr_2x.png",
+  "confidence_overlay": "../data/sr_output/confidence_overlay.png",
+  "geojson_file": "../data/boundaries/field_boundaries.geojson",
+  "description": "Delineation of fragmented smallholder agricultural fields, irrigation canals, and field bunds in the fertile Krishna Delta."
+}

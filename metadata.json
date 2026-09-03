@@ -1,0 +1,6 @@
+{
+  "name": "DeepSRM – Super Resolution Mapping",
+  "description": "Deep Learning Based Super Resolution Mapping from Medium Resolution Satellite Imagery for Agriculture, Urban, Disaster, Defence, and Forest analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,19 @@
+# DeepSRM Prototype - Dependencies
+# Python 3.8+ recommended
+
+# Core Scientific & Image Processing
+numpy>=1.22.0
+pillow>=9.5.0
+opencv-python>=4.7.0.72
+
+# Geospatial Analysis & Data Handling
+geojson>=3.0.0
+shapely>=2.0.1
+pandas>=2.0.0
+
+# Optional: Deep Learning Super-Resolution (Real-ESRGAN)
+# If PyTorch / Real-ESRGAN are not installed, DeepSRM automatically falls back to OpenCV bicubic/EDSR upscaling
+torch>=2.0.0
+torchvision>=0.15.0
+basicsr>=1.4.2
+realesrgan>=0.3.0

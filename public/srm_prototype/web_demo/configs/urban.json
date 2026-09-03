@@ -1,0 +1,15 @@
+{
+  "mode": "urban",
+  "title": "Urban Infrastructure & Settlement Mapping",
+  "region": "Guntur City Municipal Corporation, Andhra Pradesh",
+  "satellite_sensor": "Sentinel-2 MSI (10m True Color)",
+  "resolution_enhancement": "10m to 5m (2x Super-Resolution)",
+  "boundaries_count": 8,
+  "mapped_area": "62.4 Hectares (Urban Built-up Fabric)",
+  "gov_relevance": "Sharper settlement and infrastructure edges for SISDP-U and Urban Frame Survey.",
+  "original_image": "../data/original/urban_guntur.png",
+  "sr_image": "../data/sr_output/urban_guntur_sr_2x.png",
+  "confidence_overlay": "../data/sr_output/confidence_overlay.png",
+  "geojson_file": "../data/boundaries/field_boundaries.geojson",
+  "description": "High-density road corridors, commercial complexes, and urban expansion fringe monitoring."
+}
